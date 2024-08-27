@@ -1,0 +1,44 @@
+<section class="auth-card-container">
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>{{
+                appStrings?.customer?.loginHeaderText
+                }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <form [formGroup]="loginForm" class="auth-form" (ngSubmit)="login()">
+                <mat-form-field [ngClass]="{'has-error': username?.invalid && (username?.dirty || username?.touched)}"
+                    appearance="outline">
+                    <!-- username input -->
+                    <mat-label for="username">username</mat-label>
+                    <input matInput id="username" [placeholder]="appStrings?.common?.usernamePlaceHolder"
+                        formControlName="username" required />
+                    @if (username?.invalid && (username?.dirty || username?.touched)) {
+                    <mat-error>Must enter an username</mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field [ngClass]="{'has-error': password?.invalid && (password?.dirty || password?.touched)}"
+                    appearance="outline">
+                    <mat-label for="password">Password</mat-label>
+                    <input matInput id="password" [placeholder]="appStrings?.common?.passwordPlaceHolder"
+                        formControlName="password" [type]="hide() ? 'password' : 'text'" required />
+                    @if (password?.invalid && (password?.dirty || password?.touched)) {
+                    <mat-error>Must enter a password</mat-error>
+                    }
+                    <button mat-icon-button matSuffix type="button" (click)="clickEvent($event)"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+                        <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button [disabled]="username?.invalid || password?.invalid" type="submit" class="my-3 auth-btn"
+                    mat-flat-button>
+                    Login
+                </button>
+            </form>
+            <p class="signup-text">
+                Don't have a buyer account ?
+                <a [routerLink]="'/signup'">sign up</a> here
+            </p>
+        </mat-card-content>
+    </mat-card>
+</section>

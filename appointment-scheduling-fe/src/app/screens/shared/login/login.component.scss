@@ -1,0 +1,77 @@
+:host ::ng-deep {
+    .mat-form-field-appearance-fill {
+        .mdc-text-field--filled {
+            border-bottom-left-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+    }
+
+    mat-form-field>.mat-mdc-form-field-subscript-wrapper>div.mat-mdc-form-field-error-wrapper {
+        position: relative !important;
+        /* Ensure error message doesn't overlap */
+    }
+
+    mat-form-field.has-error .mat-mdc-form-field-subscript-wrapper {
+        display: block;
+    }
+
+    mat-form-field .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+}
+
+.auth-card-container {
+    margin: 1rem;
+    //   background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 1rem;
+}
+
+mat-label {
+    font-size: 1rem;
+}
+
+mat-card {
+    width: 50%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+
+    form.auth-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    mat-form-field {
+        margin-top: 1rem;
+    }
+}
+
+.signup-text {
+    font-size: 0.7rem;
+    color: rgb(173, 173, 65);
+    display: flex;
+    justify-content: center;
+
+    a {
+        text-decoration: none;
+        color: aquamarine;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.auth-btn {
+    border-radius: 4px;
+}

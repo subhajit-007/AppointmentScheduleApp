@@ -1,0 +1,33 @@
+<section class="navbar-container">
+    <mat-toolbar color="primary">
+        <a [routerLink]="'/'" class="brand-name"><span>{{ appStrings?.common?.brandName }}</span></a>
+
+        @if (!isAuthScreen) {
+            <span class="spacer"></span>
+            @if (role === "patient") {
+
+            <!-- <mat-form-field class="search-bar" appearance="fill">
+                <input matInput type="text" placeholder="Search books by name, author, genre." />
+                <button matSuffix mat-icon-button aria-label="Search">
+                    <mat-icon class="icon-size">search</mat-icon>
+                </button>
+            </mat-form-field> -->
+            }
+
+            <span class="spacer"></span>
+
+            @if (isUserLoggedIn$ | async) {
+                @if (isUserPateint()) {
+                    <a [routerLink]="'/cart'" mat-button>Book Appointment</a>
+                    <a [routerLink]="'/orders'" mat-button>Appointments</a>
+                }
+                <a [routerLink]="'/orders'" mat-button>Scheduled Appointments</a>
+                <a mat-button (click)="logout()">Log out</a>
+            } @else {
+                <a mat-button [routerLink]="'/login'">Patient Login</a>
+                <button mat-button [routerLink]="'/login'">Doctor Login</button>
+            }
+            
+        }
+    </mat-toolbar>
+</section>

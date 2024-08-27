@@ -196,4 +196,4 @@ CORS_ALLOW_METHODS = [
     'PUT'
 ]
 
-# AUTH_USER_MODEL = 'authapp.User'
+AUTH_USER_MODEL = 'authapp.User'

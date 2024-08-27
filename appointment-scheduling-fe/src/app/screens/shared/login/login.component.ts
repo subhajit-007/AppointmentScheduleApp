@@ -62,10 +62,10 @@ export class LoginComponent {
       username: this.username?.value ?? '',
       password: this.password?.value,
     };
-    console.log(payload);
+    // console.log(payload);
     this.authService.login(payload).subscribe({
       next: (res) => {
-        console.log("Res from api ===> \n", res)
+        // console.log("Res from api ===> \n", res)
         localStorage.setItem('role', `${res?.role}`)
         this.dialogService.showAlert('Success', "Login Successful");
         // Add checks for any return url else got to home page

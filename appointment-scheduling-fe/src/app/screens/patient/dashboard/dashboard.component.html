@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<section class="container-fluid">
+    <section class="content">
+        <mat-list *ngIf="doctorsNameList.length > 0; else noDoctorsNameListFoundTemplate" class="list-container">
+            @for (doctor of doctorsNameList; track doctor.id) {
+            <mat-list-item class="doctor-item" (click)="goToDoctorDetailPage(doctor?.id)">
+                <span matListItemTitle>Dr. {{ doctor?.attributes?.first_name }} {{  doctor?.attributes?.last_name }}</span>
+                <span matListItemLine>Specialty: {{ doctor?.attributes?.specialty }}</span>
+            </mat-list-item>
+            <mat-divider class="my-2"></mat-divider>
+            }
+        </mat-list>
+        <ng-template #noDoctorsNameListFoundTemplate>
+            <div class="notFoundContainer">
+                <h6 class="fs-4">No doctors Found</h6>
+            </div>
+        </ng-template>
+    </section>
+</section>

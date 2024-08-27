@@ -1,0 +1,12 @@
+.container {
+    // background-color: antiquewhite;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-width: 0;
+    min-width: 40vw;
+}

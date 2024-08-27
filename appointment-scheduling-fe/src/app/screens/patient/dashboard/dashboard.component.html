@@ -1,9 +1,18 @@
 <section class="container-fluid">
     <section class="content">
+        <div class="search-bar-container mt-4">
+            <mat-form-field class="search-bar" appearance="fill">
+                <input id="searchText" [formControl]="searchText" matInput type="text" placeholder="Search doctors by their specialty" />
+                <button matSuffix mat-icon-button aria-label="Search" (click)="searchDoctors()">
+                    <mat-icon class="icon-size">search</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
         <mat-list *ngIf="doctorsNameList.length > 0; else noDoctorsNameListFoundTemplate" class="list-container">
             @for (doctor of doctorsNameList; track doctor.id) {
             <mat-list-item class="doctor-item" (click)="goToDoctorDetailPage(doctor?.id)">
-                <span matListItemTitle>Dr. {{ doctor?.attributes?.first_name }} {{  doctor?.attributes?.last_name }}</span>
+                <span matListItemTitle>Dr. {{ doctor?.attributes?.first_name }}
+                    {{ doctor?.attributes?.last_name }}</span>
                 <span matListItemLine>Specialty: {{ doctor?.attributes?.specialty }}</span>
             </mat-list-item>
             <mat-divider class="my-2"></mat-divider>

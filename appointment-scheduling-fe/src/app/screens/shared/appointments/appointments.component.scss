@@ -1,0 +1,27 @@
+.appointment-item {
+    background-color: transparent;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+}
+.appointment-item:hover {
+    cursor: pointer;
+    background-color: #425660;
+}
+
+.notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // background-color: red;
+    color: #889ea9;
+    min-height: 40vh;
+    a {
+        text-decoration: none;
+        color: #bbced7;
+        transition: all 0.2s ease-in-out;
+    }
+    a:hover {
+        color: #499ec0;
+    }
+}

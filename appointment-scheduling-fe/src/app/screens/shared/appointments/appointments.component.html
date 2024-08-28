@@ -1,0 +1,27 @@
+<section class="container-fluid">
+    <section class="content">
+        <mat-list *ngIf="appointmentList.length > 0; else noAppointmentListFoundTemplate" class="list-container">
+            @for (appointment of appointmentList; track appointment.id) {
+            <mat-list-item class="appointment-item" (click)="showActions()">
+                @if (role == "patient"){
+                    <span matListItemTitle>Dr. {{ appointment?.attributes?.doctor?.first_name }}
+                        {{ appointment?.attributes?.doctor?.last_name }}</span>
+                    <span matListItemLine>Specialty: {{ appointment?.attributes?.doctor?.specialty }}</span>
+                    <span matListItemLine>Appointment at {{ appointment?.attributes?.appointment_time }} - {{ appointment?.attributes?.appointment_date | date : 'EEE MMM d, YYYY' }}</span>
+                } @else {
+                    <span matListItemTitle>Patient Name - {{ appointment?.attributes?.patient?.first_name }}
+                        {{ appointment?.attributes?.patient?.last_name }}</span>
+                    <span matListItemLine>Phone Number: {{ appointment?.attributes?.patient?.phone_number }}</span>
+                    <span matListItemLine>Appointment Timing: at {{ appointment?.attributes?.appointment_time }} - {{ appointment?.attributes?.appointment_date | date : 'EEE MMM d, YYYY' }}</span>
+                }
+            </mat-list-item>
+            <mat-divider class="my-2"></mat-divider>
+            }
+        </mat-list>
+        <ng-template #noAppointmentListFoundTemplate>
+            <div class="notFoundContainer">
+                <h6 class="fs-4">No Appointments Found</h6>
+            </div>
+        </ng-template>
+    </section>
+</section>

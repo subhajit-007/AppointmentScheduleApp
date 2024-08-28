@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { PageNotFoundComponent } from './screens/shared/page-not-found/page-not-found.component';
 import { PatientComponent } from './screens/patient/patient.component';
 import { LoginComponent } from './screens/shared/login/login.component';
+import { AppointmentsComponent } from './screens/shared/appointments/appointments.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,10 @@ export const routes: Routes = [
     //             (m) => m.RESTAURANT_ROUTE
     //         ),
     // },
+    {
+        path: 'appointments',
+        component: AppointmentsComponent
+    },
     {
         path: 'login',
         component: LoginComponent

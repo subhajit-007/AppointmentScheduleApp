@@ -18,10 +18,10 @@
 
             @if (isUserLoggedIn$ | async) {
                 @if (isUserPateint()) {
-                    <a [routerLink]="'/cart'" mat-button>Book Appointment</a>
-                    <a [routerLink]="'/orders'" mat-button>Appointments</a>
+                    <a [routerLink]="'/book/appointment'" mat-button>Book Appointment</a>
+                    <a [routerLink]="'/appointments'" mat-button>Appointments</a>
                 }
-                <a [routerLink]="'/orders'" mat-button>Scheduled Appointments</a>
+                <a [routerLink]="'/appointments'" mat-button>Scheduled Appointments</a>
                 <a mat-button (click)="logout()">Log out</a>
             } @else {
                 <a mat-button [routerLink]="'/login'">Patient Login</a>
